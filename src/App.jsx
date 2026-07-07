@@ -161,7 +161,7 @@ export default function App() {
 
       {/* Enlaces Informativos abajo del todo */}
       <div style={{ marginTop: '20px', fontSize: '14px', color: '#9ca3af', textAlign: 'center' }}>
-        Repositorio de la Presentación: <a href="https://github.com/scarletpaez-2001/presentacion_windows_paesca" target="_blank" rel="noreferrer" style={{color: '#ef4444', textDecoration: 'none'}}>GitHub Diapositivas</a>
+        Repositorio de la Presentación: <a href="https://github.com/scarletpaez-2001/presentacion_paesca" target="_blank" rel="noreferrer" style={{color: '#ef4444', textDecoration: 'none'}}>GitHub Diapositivas</a>
       </div>
     </div>
   );
