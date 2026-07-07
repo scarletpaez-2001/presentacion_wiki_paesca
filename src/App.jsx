@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const slides = [
   {
     title: "Implementación e Infraestructura en Windows Server",
-    subtitle: "Presentación Ejecutiva - Proyecto PAESCA",
+    subtitle: "Presentación Ejecutiva e Interactiva - Proyecto PAESCA",
     institution: "INACAP Valparaíso",
     author: "Scarlet Páez",
     course: "Administración de Sistemas Operativos Corporativos",
@@ -11,47 +11,59 @@ const slides = [
     isPortada: true
   },
   {
-    title: "1. Arquitectura Lógica y Topología de Red",
+    title: "Paso 1: Instalación y Configuración Base del Sistema",
     points: [
-      "Objetivo: Diseñar una plataforma centralizada (Wiki) para documentar servicios core y políticas de seguridad corporativas.",
-      "Modelo de Red: Arquitectura Cliente-Servidor centralizada bajo virtualización segura.",
-      "Controlador de Dominio (DC): Servidor central encargado de la autenticación, DNS y DHCP.",
-      "Estación de Trabajo (Cliente): Equipo Windows integrado para validar directivas de seguridad en red."
-    ]
+      "Aprovisionamiento base mediante entorno virtualizado seguro.",
+      "Asignación del Hostname formal del Servidor Corporativo.",
+      "Configuración de direccionamiento IP estático e interfaces de red."
+    ],
+    // Llamamos a la imagen real de la instalación desde el GitHub de tu wiki
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/01_instalacion.png"
   },
   {
-    title: "2. Configuración Base y Active Directory",
+    title: "Paso 2: Despliegue de Active Directory (AD DS)",
     points: [
-      "Aprovisionamiento Base: Instalación limpia del SO, credenciales administrativas y Hostname formal del servidor.",
-      "Active Directory (AD DS): Promoción del servidor a Controlador de Dominio principal.",
-      "Estructura de Bosque: Inicialización del bosque raíz bajo el dominio local 'inacap.local'.",
-      "Soporte DNS: Configuración integrada para resolver zonas directas e inversas de la organización."
-    ]
+      "Promoción del servidor a Controlador de Dominio principal.",
+      "Inicialización del bosque raíz bajo el dominio local 'inacap.local'.",
+      "Configuración e integración nativa del rol de servidor DNS."
+    ],
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/02_activedirectory.png"
   },
   {
-    title: "3. Gestión de Objetos y Roles Core (DHCP)",
+    title: "Paso 3: Administración de Objetos de Dominio",
     points: [
-      "Estructura Organizativa: Creación de Unidades Organizativas (OU), cuentas de soporte y grupos globales.",
-      "Servicio DHCP: Implementación del rol DHCP Server para automatizar el direccionamiento IP corporativo.",
-      "Parámetros del Ámbito: Configuración de rangos IPv4 con exclusiones técnicas específicas.",
-      "Enlace Automático: Distribución automática de puerta de enlace y sufijos DNS hacia las estaciones cliente."
-    ]
+      "Diseño de la estructura jerárquica mediante Unidades Organizativas (OU).",
+      "Creación de cuentas de usuario de soporte y grupos de seguridad.",
+      "Delegación técnica de accesos y control de identidades corporativas."
+    ],
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/03_objetos.png"
   },
   {
-    title: "4. Seguridad y Políticas de Grupo (GPOs)",
+    title: "Paso 4: Implementación del Servicio DHCP",
     points: [
-      "Seguridad Lógica: Diseño y despliegue de Objetos de Directiva de Grupo (GPO) vinculados a las OUs.",
-      "Endurecimiento del Sistema: Restricción administrativa total del Panel de Control en los clientes.",
-      "Auditoría de Cumplimiento: Aplicación y verificación visual tras forzar la actualización de directivas en los puestos de trabajo."
-    ]
+      "Activación del rol DHCP Server para automatización de la red interna.",
+      "Configuración de Ámbito IPv4 y definición de rangos de exclusión.",
+      "Distribución dinámica de la Puerta de Enlace y Sufijo DNS DNS a clientes."
+    ],
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/04_dhcp.png"
   },
   {
-    title: "5. Conclusión y Co-Creación (Bitácora IA)",
+    title: "Paso 5: Directivas de Grupo (GPO) y Seguridad",
     points: [
-      "Plataforma SPA: Migración de documentación estática a una aplicación interactiva usando React, Vite y CSS-in-JS.",
-      "Ingeniería de Prompts: Bitácora histórica detallada que registra la co-creación con IA para el enrutamiento dinámico.",
-      "Respaldo y Disponibilidad: Despliegue automático y redundante a través de Vercel y GitHub para el acceso técnico."
-    ]
+      "Diseño de directivas restrictivas para el endurecimiento del entorno.",
+      "Bloqueo absoluto del Panel de Control en las estaciones de trabajo.",
+      "Aplicación obligatoria de políticas de seguridad lógica institucional."
+    ],
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/05_gpo.png"
+  },
+  {
+    title: "Paso 6: Incorporación y Validación del Cliente",
+    points: [
+      "Integración de la estación de trabajo Windows Cliente al dominio.",
+      "Auditoría visual del éxito tras forzar la actualización de directivas.",
+      "Validación de credenciales centralizadas y restricciones operativas."
+    ],
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/06_cliente.png"
   }
 ];
 
@@ -71,7 +83,7 @@ export default function App() {
     }}>
       {/* Contenedor Diapositiva */}
       <div style={{
-        backgroundColor: '#1f2937', width: '100%', maxWidth: '900px', height: '500px',
+        backgroundColor: '#1f2937', width: '100%', maxWidth: '1000px', minHeight: '520px',
         borderRadius: '12px', padding: '40px', display: 'flex', flexDirection: 'column',
         justifyContent: 'space-between', boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
         borderTop: '8px solid #ef4444', boxSizing: 'border-box'
@@ -81,9 +93,9 @@ export default function App() {
           /* Render Portada */
           <div style={{ textAlign: 'center', margin: 'auto 0' }}>
             <span style={{ backgroundColor: '#ef4444', color: '#fff', padding: '4px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: 'bold' }}>
-              PRESENTACIÓN EJECUTIVA
+              PRESENTACIÓN INTERACTIVA
             </span>
-            <h1 style={{ fontSize: '32px', marginTop: '15px', color: '#ffffff' }}>{slide.title}</h1>
+            <h1 style={{ fontSize: '34px', marginTop: '15px', color: '#ffffff' }}>{slide.title}</h1>
             <p style={{ color: '#9ca3af', fontSize: '18px', marginBottom: '30px' }}>{slide.subtitle}</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', fontSize: '14px', borderTop: '1px solid #374151', paddingTop: '20px', color: '#cbd5e1' }}>
               <div><strong>Estudiante:</strong> {slide.author}<br/><strong>Institución:</strong> {slide.institution}</div>
@@ -91,25 +103,46 @@ export default function App() {
             </div>
           </div>
         ) : (
-          /* Render Contenido Normal */
-          <div>
-            <h2 style={{ fontSize: '26px', color: '#ef4444', marginBottom: '25px', borderBottom: '2px solid #374151', paddingBottom: '10px' }}>
-              {slide.title}
-            </h2>
-            <ul style={{ paddingLeft: '20px', margin: '0' }}>
-              {slide.points.map((point, idx) => (
-                <li key={idx} style={{ fontSize: '18px', marginBottom: '15px', lineHeight: '1.6', color: '#e5e7eb' }}>
-                  {point}
-                </li>
-              ))}
-            </ul>
+          /* Render Contenido Normal con Imagen al lado derecho */
+          <div style={{ display: 'flex', gap: '30px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div style={{ flex: '1', minWidth: '300px' }}>
+              <h2 style={{ fontSize: '24px', color: '#ef4444', marginBottom: '20px', borderBottom: '2px solid #374151', paddingBottom: '10px' }}>
+                {slide.title}
+              </h2>
+              <ul style={{ paddingLeft: '20px', margin: '0' }}>
+                {slide.points.map((point, idx) => (
+                  <li key={idx} style={{ fontSize: '16px', marginBottom: '12px', lineHeight: '1.5', color: '#e5e7eb' }}>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Contenedor de la Imagen */}
+            <div style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+              <img 
+                src={slide.imgUrl} 
+                alt="Evidencia Técnica"
+                onError={(e) => {
+                  // Si una imagen específica no se llama igual, muestra un cuadro elegante indicando la sección de evidencia
+                  e.target.style.display = 'none';
+                }}
+                style={{ 
+                  maxWidth: '100%', 
+                  maxHeight: '280px', 
+                  borderRadius: '8px', 
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                  border: '1px solid #4b5563'
+                }} 
+              />
+            </div>
           </div>
         )}
 
         {/* Barra de Navegación Inferior */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #374151', paddingTop: '15px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #374151', paddingTop: '15px', marginTop: '20px' }}>
           <span style={{ fontSize: '14px', color: '#9ca3af' }}>
-            Inacap Valparaíso • Diapositiva {current + 1} de {slides.length}
+            Inacap Valparaíso • Paso {current} / 6
           </span>
           <div>
             <button onClick={prevSlide} disabled={current === 0} style={{
@@ -129,7 +162,7 @@ export default function App() {
 
       </div>
 
-      {/* Enlaces Informativos abajo del todo - Corregido */}
+      {/* Enlaces Informativos abajo del todo */}
       <div style={{ marginTop: '20px', fontSize: '14px', color: '#9ca3af', textAlign: 'center' }}>
         Repositorio de la Presentación: <a href="https://github.com/scarletpaez-2001/presentacion_windows_paesca" target="_blank" rel="noreferrer" style={{color: '#ef4444', textDecoration: 'none'}}>GitHub Diapositivas</a>
       </div>
