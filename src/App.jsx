@@ -17,8 +17,7 @@ const slides = [
       "Asignación del Hostname formal del Servidor Corporativo.",
       "Configuración de direccionamiento IP estático e interfaces de red."
     ],
-    // Llamamos a la imagen real de la instalación desde el GitHub de tu wiki
-    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/01_instalacion.png"
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/instalacion_server.png"
   },
   {
     title: "Paso 2: Despliegue de Active Directory (AD DS)",
@@ -27,7 +26,7 @@ const slides = [
       "Inicialización del bosque raíz bajo el dominio local 'inacap.local'.",
       "Configuración e integración nativa del rol de servidor DNS."
     ],
-    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/02_activedirectory.png"
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/nombre_dominio.png"
   },
   {
     title: "Paso 3: Administración de Objetos de Dominio",
@@ -36,16 +35,16 @@ const slides = [
       "Creación de cuentas de usuario de soporte y grupos de seguridad.",
       "Delegación técnica de accesos y control de identidades corporativas."
     ],
-    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/03_objetos.png"
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/creacion_usuario_s.png"
   },
   {
     title: "Paso 4: Implementación del Servicio DHCP",
     points: [
       "Activación del rol DHCP Server para automatización de la red interna.",
       "Configuración de Ámbito IPv4 y definición de rangos de exclusión.",
-      "Distribución dinámica de la Puerta de Enlace y Sufijo DNS DNS a clientes."
+      "Distribución dinámica de la Puerta de Enlace y Sufijo DNS a clientes."
     ],
-    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/04_dhcp.png"
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/ambito_nuevo.png"
   },
   {
     title: "Paso 5: Directivas de Grupo (GPO) y Seguridad",
@@ -54,7 +53,7 @@ const slides = [
       "Bloqueo absoluto del Panel de Control en las estaciones de trabajo.",
       "Aplicación obligatoria de políticas de seguridad lógica institucional."
     ],
-    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/05_gpo.png"
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/prohibicion_panel_control.png"
   },
   {
     title: "Paso 6: Incorporación y Validación del Cliente",
@@ -63,7 +62,7 @@ const slides = [
       "Auditoría visual del éxito tras forzar la actualización de directivas.",
       "Validación de credenciales centralizadas y restricciones operativas."
     ],
-    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/img_paesca/06_cliente.png"
+    imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/creacion_vm_cliente.png"
   }
 ];
 
@@ -123,16 +122,13 @@ export default function App() {
               <img 
                 src={slide.imgUrl} 
                 alt="Evidencia Técnica"
-                onError={(e) => {
-                  // Si una imagen específica no se llama igual, muestra un cuadro elegante indicando la sección de evidencia
-                  e.target.style.display = 'none';
-                }}
                 style={{ 
                   maxWidth: '100%', 
                   maxHeight: '280px', 
                   borderRadius: '8px', 
                   boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                  border: '1px solid #4b5563'
+                  border: '1px solid #4b5563',
+                  backgroundColor: '#374151'
                 }} 
               />
             </div>
