@@ -6,13 +6,14 @@ const slides = [
     subtitle: "Presentación Ejecutiva e Interactiva - Proyecto PAESCA",
     institution: "INACAP Valparaíso",
     author: "Scarlet Páez",
-    course: "Administración de Sistemas Operativos Corporativos",
+    course: "Sistemas Operativos",
     professor: "Docente: Rubén Schnettler",
     isPortada: true
   },
   {
     title: "Paso 1: Instalación y Configuración Base del Sistema",
     points: [
+      "Aquí se puede apreciar la instalación del sistema operativo Windows Server",
       "Aprovisionamiento base mediante entorno virtualizado seguro.",
       "Asignación del Hostname formal del Servidor Corporativo.",
       "Configuración de direccionamiento IP estático e interfaces de red."
