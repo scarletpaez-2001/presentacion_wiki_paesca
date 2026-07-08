@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 const slides = [
   {
     title: "Implementación e Infraestructura en Windows Server",
-    subtitle: "Presentación Ejecutiva e Interactiva - Proyecto PAESCA",
-    institution: "INACAP Valparaíso",
+    subtitle: "Presentación Ejecutiva Instalación de Windows Server - Proyecto PAESCA",
+    institution: "INACAP",
     author: "Scarlet Páez",
     course: "Sistemas Operativos",
     professor: "Docente: Rubén Schnettler",
@@ -14,6 +14,7 @@ const slides = [
     title: "Paso 1: Instalación y Configuración Base del Sistema",
     points: [
       "Aquí se puede apreciar la instalación del sistema operativo Windows Server",
+      "En esta fase se realizaron las siguientes configuraciones: ",
       "Aprovisionamiento base mediante entorno virtualizado seguro.",
       "Asignación del Hostname formal del Servidor Corporativo.",
       "Configuración de direccionamiento IP estático e interfaces de red."
@@ -32,6 +33,7 @@ const slides = [
   {
     title: "Paso 3: Administración de Objetos de Dominio",
     points: [
+      "En este sector se evidencia la creación de usuarios y grupos de seguridad.",
       "Diseño de la estructura jerárquica mediante Unidades Organizativas (OU).",
       "Creación de cuentas de usuario de soporte y grupos de seguridad.",
       "Delegación técnica de accesos y control de identidades corporativas."
@@ -41,6 +43,7 @@ const slides = [
   {
     title: "Paso 4: Implementación del Servicio DHCP",
     points: [
+      "En esta etapa se configura el servicio DHCP para la automatización de la red interna.",
       "Activación del rol DHCP Server para automatización de la red interna.",
       "Configuración de Ámbito IPv4 y definición de rangos de exclusión.",
       "Distribución dinámica de la Puerta de Enlace y Sufijo DNS a clientes."
@@ -59,11 +62,20 @@ const slides = [
   {
     title: "Paso 6: Incorporación y Validación del Cliente",
     points: [
+      "Configuración inicial del cliente Windows para su integración en el dominio.",
       "Integración de la estación de trabajo Windows Cliente al dominio.",
       "Auditoría visual del éxito tras forzar la actualización de directivas.",
       "Validación de credenciales centralizadas y restricciones operativas."
     ],
     imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/creacion_vm_cliente.png"
+  },
+  {
+    title: "Conclusión y Cierre del Proyecto",
+    points: [
+      "La realización de este proyecto permitió consolidar conocimientos prácticos fundamentales en la instalación, configuración e implementación de la infraestructura bajo entornos Windows Server.",
+      "El despliegue secuencial de servidores críticos como Active Directory, DNS y DHCP sumando la aplicación de políticas de seguridad mediante GPOs, demostró la importancia de una administración centralizada y robusta en redes corporativas.",
+      "Asimismo, el desarrollo de una  Wiki centtralizada coomo plataforma de documentación, no solo facilitó el registro estructurado, sino que destacó el valor de la creación, y la gestión del conocimiento tecnológico en entornos profesionales.",
+    ]
   }
 ];
 
