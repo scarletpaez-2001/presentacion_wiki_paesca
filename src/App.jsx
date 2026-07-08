@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const slides = [
   {
     title: "Implementación e Infraestructura en Windows Server",
-    subtitle: "Presentación Ejecutiva Instalación de Windows Server - Proyecto PAESCA",
+    subtitle: "Presentación instalación Windows Server - Proyecto PAESCA",
     institution: "INACAP",
     author: "Scarlet Páez",
     course: "Sistemas Operativos",
@@ -13,7 +13,7 @@ const slides = [
   {
     title: "Paso 1: Instalación y Configuración Base del Sistema",
     points: [
-      "Aquí se puede apreciar la instalación del sistema operativo Windows Server",
+      "En este sector se puede apreciar la instalación de Windows Server en un entorno virtualizado seguro.",
       "En esta fase se realizaron las siguientes configuraciones: ",
       "Aprovisionamiento base mediante entorno virtualizado seguro.",
       "Asignación del Hostname formal del Servidor Corporativo.",
@@ -33,7 +33,7 @@ const slides = [
   {
     title: "Paso 3: Administración de Objetos de Dominio",
     points: [
-      "En este sector se evidencia la creación de usuarios y grupos de seguridad.",
+      "En este sector se evidencia la creación de usuarios y grupos de seguridad",
       "Diseño de la estructura jerárquica mediante Unidades Organizativas (OU).",
       "Creación de cuentas de usuario de soporte y grupos de seguridad.",
       "Delegación técnica de accesos y control de identidades corporativas."
@@ -43,7 +43,7 @@ const slides = [
   {
     title: "Paso 4: Implementación del Servicio DHCP",
     points: [
-      "En esta etapa se configura el servicio DHCP para la automatización de la red interna.",
+      "En eesta etapa se configura el servicio DCHP para la automatización de la red interna.",
       "Activación del rol DHCP Server para automatización de la red interna.",
       "Configuración de Ámbito IPv4 y definición de rangos de exclusión.",
       "Distribución dinámica de la Puerta de Enlace y Sufijo DNS a clientes."
@@ -60,9 +60,9 @@ const slides = [
     imgUrl: "https://raw.githubusercontent.com/scarletpaez-2001/wiki_paesca/main/public/img_paesca/prohibicion_panel_control.png"
   },
   {
-    title: "Paso 6: Incorporación y Validación del Cliente",
+    title: "Paso 6: Incorporación y Validation del Cliente",
     points: [
-      "Configuración inicial del cliente Windows para su integración en el dominio.",
+      "Esta parte involucra la configuración inicial del cliente Windows para su integración al dominio",
       "Integración de la estación de trabajo Windows Cliente al dominio.",
       "Auditoría visual del éxito tras forzar la actualización de directivas.",
       "Validación de credenciales centralizadas y restricciones operativas."
@@ -74,8 +74,9 @@ const slides = [
     points: [
       "La realización de este proyecto permitió consolidar conocimientos prácticos fundamentales en la instalación, configuración e implementación de la infraestructura bajo entornos Windows Server.",
       "El despliegue secuencial de servidores críticos como Active Directory, DNS y DHCP sumando la aplicación de políticas de seguridad mediante GPOs, demostró la importancia de una administración centralizada y robusta en redes corporativas.",
-      "Asimismo, el desarrollo de una  Wiki centtralizada coomo plataforma de documentación, no solo facilitó el registro estructurado, sino que destacó el valor de la creación, y la gestión del conocimiento tecnológico en entornos profesionales.",
-    ]
+      "Asimismo, el desarrollo de una Wiki centralizada como plataforma de documentación, no solo facilitó el registro estructurado, sino que destacó el valor de la co-creación y la gestión del conocimiento tecnológico en entornos profesionales."
+    ],
+    isConclusion: true
   }
 ];
 
@@ -115,7 +116,7 @@ export default function App() {
             </div>
           </div>
         ) : (
-          /* Render Contenido Normal con Imagen al lado derecho */
+          /* Render Contenido Normal o Conclusión */
           <div style={{ display: 'flex', gap: '30px', alignItems: 'center', flexWrap: 'wrap' }}>
             <div style={{ flex: '1', minWidth: '300px' }}>
               <h2 style={{ fontSize: '24px', color: '#ef4444', marginBottom: '20px', borderBottom: '2px solid #374151', paddingBottom: '10px' }}>
@@ -130,28 +131,30 @@ export default function App() {
               </ul>
             </div>
             
-            {/* Contenedor de la Imagen */}
-            <div style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
-              <img 
-                src={slide.imgUrl} 
-                alt="Evidencia Técnica"
-                style={{ 
-                  maxWidth: '100%', 
-                  maxHeight: '280px', 
-                  borderRadius: '8px', 
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                  border: '1px solid #4b5563',
-                  backgroundColor: '#374151'
-                }} 
-              />
-            </div>
+            {/* Solo muestra el contenedor de la imagen si NO es la conclusión */}
+            {!slide.isConclusion && (
+              <div style={{ flex: '1', minWidth: '300px', display: 'flex', justifyContent: 'center' }}>
+                <img 
+                  src={slide.imgUrl} 
+                  alt="Evidencia Técnica"
+                  style={{ 
+                    maxWidth: '100%', 
+                    maxHeight: '280px', 
+                    borderRadius: '8px', 
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                    border: '1px solid #4b5563',
+                    backgroundColor: '#374151'
+                  }} 
+                />
+              </div>
+            )}
           </div>
         )}
 
         {/* Barra de Navegación Inferior */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #374151', paddingTop: '15px', marginTop: '20px' }}>
           <span style={{ fontSize: '14px', color: '#9ca3af' }}>
-            Inacap Valparaíso • Paso {current} / 6
+            Inacap Valparaíso • {slide.isConclusion ? "Cierre" : `Paso ${current} / 6`}
           </span>
           <div>
             <button onClick={prevSlide} disabled={current === 0} style={{
